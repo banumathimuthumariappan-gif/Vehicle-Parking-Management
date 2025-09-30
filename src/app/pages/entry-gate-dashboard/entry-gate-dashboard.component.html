@@ -1,0 +1,122 @@
+<div class="container-fluid entry-gate-dashboard">
+  <div class="parking-dashboard">
+    <div class="dashboard-cards">
+      <div class="card dashboard-card">
+        <div class="card-body dasboard-card-body">
+          <div class="card-left">
+            <h6 class="card-title dashboard-card-title">Available Slots</h6>
+            <p class="card-text dashboard-card-text available-spots-count">
+              {{ availableCount }}
+            </p>
+          </div>
+          <div class="card-right">
+            <i class="fa-solid fa-circle-check fa-3x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="parking-layout">
+    <h3><i class="fa-solid fa-border-all"></i> Parking Layout</h3>
+    <div class="parking-grid">
+      <div
+        class="card layout-card"
+        *ngFor="let slot of slots | availableSlots"
+        [ngClass]="slot.status.toLowerCase()"
+        (click)="onSlotClicked(slot)"
+      >
+        <div class="card-body layout-card-body">
+          <h5 class="card-title layout-card-id">{{ slot.id }}</h5>
+          <p class="card-text layout-card-status">{{ slot.status }}</p>
+          <p class="card-text layout-card-vehicle" *ngIf="slot.vehicleNumber">
+            {{ slot.vehicleNumber }}
+          </p>
+          <p class="card-text layout-card-person" *ngIf="slot.bookedBy">
+            {{ slot.bookedBy }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Park Vehicle Modal -->
+  <div
+    class="modal fade"
+    id="slotBookingModal"
+    tabindex="-1"
+    aria-labelledby="bookingModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="slotBookingModalTitle">
+            Book Slot - {{ selectedSlot?.id }}
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="slotBookingForm">
+            <!-- Vehicle Number -->
+            <div class="form-group">
+              <label for="vehicleNumber" class="form-label"
+                >Vehicle Number</label
+              >
+              <input
+                type="text"
+                name="vehicleNumber"
+                id="vehicleNumber"
+                class="form-control"
+                required
+                placeholder="Enter Vehicle Number"
+                formControlName="vehicleNumber"
+              />
+            </div>
+            <div
+              *ngIf="
+                slotBookingForm.get('vehicleNumber')?.touched &&
+                slotBookingForm.get('vehicleNumber')?.invalid
+              "
+              class="error-message"
+            >
+              Vehicle Number is required
+            </div>
+            <!-- Booked Name -->
+            <div class="form-group">
+              <label for="bookedName" class="form-label">Name</label>
+              <input
+                type="text"
+                name="bookedName"
+                id="bookedName"
+                class="form-control"
+                placeholder="Enter your name"
+                formControlName="bookedName"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="slotBookingBtn"
+            (click)="onBookSlot()"
+          >
+            Book Slot
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

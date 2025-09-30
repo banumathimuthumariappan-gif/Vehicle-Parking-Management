@@ -1,0 +1,84 @@
+<div class="container-fluid exit-gate-dashboard">
+  <div class="parking-dashboard">
+    <div class="dashboard-cards">
+      <div class="card dashboard-card">
+        <div class="card-body dasboard-card-body">
+          <div class="card-left">
+            <h6 class="card-title dashboard-card-title">Occupied Slots</h6>
+            <p class="card-text dashboard-card-text occupied-value">
+              {{ occupiedCount }}
+            </p>
+          </div>
+          <div class="card-right">
+            <i class="fa-solid fa-car-side fa-3x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="parking-layout">
+    <h3><i class="fa-solid fa-border-all"></i> Parking Layout</h3>
+    <div class="parking-grid">
+      <div
+        class="card layout-card"
+        *ngFor="let slot of slots | occupiedSlots"
+        [ngClass]="slot.status.toLowerCase()"
+        (click)="onSlotClicked(slot)"
+      >
+        <div class="card-body layout-card-body">
+          <h5 class="card-title layout-card-id">{{ slot.id }}</h5>
+          <p class="card-text layout-card-status">{{ slot.status }}</p>
+          <p class="card-text layout-card-vehicle" *ngIf="slot.vehicleNumber">
+            {{ slot.vehicleNumber }}
+          </p>
+          <p class="card-text layout-card-person" *ngIf="slot.bookedBy">
+            {{ slot.bookedBy }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Release Slot Modal -->
+  <div
+    class="modal fade"
+    id="slotReleaseModal"
+    tabindex="-1"
+    aria-labelledby="slotReleaseModal"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="slotReleaseModalTitle">
+            Release Slot - {{ selectedSlot?.id }}
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Are you sure to unpark the vehicle and release the slot?
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="onReleaseSlot()"
+          >
+            Release Slot
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

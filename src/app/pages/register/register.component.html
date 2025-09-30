@@ -1,0 +1,107 @@
+<div class="container-fluid register-container">
+  <div id="register-card">
+    <div id="register-header">
+      <h2 id="app-title">ParkMate</h2>
+      <h6 id="app-subtitle">Parking Management System</h6>
+    </div>
+    <div id="register-form">
+      <h2 id="register-title">Register</h2>
+      <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+        <div class="form-group">
+          <label for="registerUserName" class="form-label">UserName</label>
+          <input
+            type="text"
+            name="registerUserName"
+            id="registerUserName"
+            class="form-control"
+            required
+            placeholder="Enter your username"
+            [(ngModel)]="registerUserName"
+            #userNameField="ngModel"
+            minlength="3"
+          />
+        </div>
+        <div *ngIf="userNameField.invalid && userNameField.touched">
+          <span class="error-message" *ngIf="userNameField.errors?.['required']"
+            >Username is required</span
+          >
+          <span
+            class="error-message"
+            *ngIf="userNameField.errors?.['minlength']"
+            >Username should be minimum 3 characters</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="registerEmailID" class="form-label">Email ID</label>
+          <input
+            type="email"
+            name="registerEmailID"
+            id="registerEmailID"
+            class="form-control"
+            required
+            placeholder="Enter your Email ID"
+            [(ngModel)]="registerEmailID"
+            #emailField="ngModel"
+          />
+        </div>
+        <div *ngIf="emailField.invalid && emailField.touched">
+          <span class="error-message" *ngIf="emailField.errors?.['required']"
+            >Email ID is required</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="registerPassword" class="form-label">Password</label>
+          <input
+            type="password"
+            name="registerPassword"
+            id="registerPassword"
+            required
+            class="form-control"
+            placeholder="Enter your password"
+            [(ngModel)]="registerPassword"
+            minlength="3"
+            #passwordField="ngModel"
+          />
+        </div>
+        <div *ngIf="passwordField.invalid && passwordField.touched">
+          <span
+            *ngIf="passwordField.errors?.['minlength']"
+            class="error-message"
+            >Password should be minimum 3 characters</span
+          >
+          <span *ngIf="passwordField.errors?.['required']" class="error-message"
+            >Password is required</span
+          >
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            class="form-control"
+            required
+            placeholder="Confirm your password"
+            [(ngModel)]="confirmPassword"
+            minlength="3"
+            #confirmPasswordField="ngModel"
+          />
+        </div>
+        <div
+          *ngIf="
+            confirmPasswordField.touched && confirmPassword !== registerPassword
+          "
+          class="error-message"
+        >
+          Password do not match. Please try again
+        </div>
+        <div>
+          <button class="btn btn-primary" id="registerBtn" [disabled]="registerForm.invalid">Register</button>
+        </div>
+      </form>
+    </div>
+    <div id="register-footer">©2025, Copyright Reserved</div>
+  </div>
+</div>

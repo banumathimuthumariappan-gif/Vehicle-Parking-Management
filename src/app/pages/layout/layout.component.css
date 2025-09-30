@@ -1,0 +1,18 @@
+#logoutBtn {
+    color: var(--white-color);
+    border-color: var(--white-color);
+}
+
+nav {
+    background: var(--blue-color);
+}
+
+.navbar-brand {
+    color: var(--white-color);
+}
+
+.navbar-toggler, .navbar-toggler-icon {
+    color: var(--white-color);
+    border-color: var(--white-color);
+}
+

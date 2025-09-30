@@ -1,0 +1,55 @@
+.register-container {
+    background: var(--blue-gradient);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#app-title {
+    color: var(--white-color);
+    font-size: var(--primary-heading-height);
+    text-align: center;
+}
+
+#app-subtitle {
+    color: var(--white-color);
+    font-size: var(--secondary-heading-height);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#register-title {
+    color: var(--white-color);
+    font-size: var(--secondary-heading-height);
+    text-align: center;
+}
+
+.form-group {
+    padding-bottom: 1rem;
+}
+
+.form-label {
+    color: var(--white-color);
+    margin-bottom: 0.5rem;
+    font-size: var(--primary-text-height);
+}
+
+#registerBtn {
+    color: var(--white-color);
+    background-color: var(--blue-color);
+    margin-bottom: 2rem;
+    border-color: var(--blue-color);
+}
+
+#registerBtn:hover {
+    color: var(--white-color);
+    background-color: var(--light-blue-color);
+    border-color: var(--light-blue-color);
+    cursor: pointer;
+}
+
+.error-message {
+    color: var(--red-color);
+}
