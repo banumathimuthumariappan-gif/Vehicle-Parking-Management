@@ -84,3 +84,7 @@
   background-color: var(--pastel-red);
   border-color: var(--red-color);
 }
+
+.error-message {
+  color: var(--red-color);
+}
