@@ -1,59 +1,99 @@
-# VehicleParkingManagement
+# 🚗 ParkMate – Role-Based Vehicle Parking Management System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+## 📖 Overview
+**ParkMate** is a role-based vehicle parking management system designed to simplify parking operations for organizations and public parking facilities.  
+The system supports multiple user roles with different levels of access and functionality:
+- **Admin**: Manage parking slots, view reports, oversee users.
+- **Entry Gate Operator**: Register vehicles entering the parking facility.
+- **Exit Gate Operator**: Process vehicle exits.
+- **User**: View available slots and book parking.
 
-## Development server
+ParkMate provides real-time updates on parking availability, occupancy rate, and ensures smooth coordination between entry and exit operations.
 
-To start a local development server, run:
 
-```bash
-ng serve
-```
+## 🛠️ Features by Role
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 👨‍💼 Admin
+- Manage the entry and exit of the vehicles
+- View occupancy statistics (available, occupied, reserved, under maintenance).
+- Ensure real-time updates to the slot availability.
 
-## Code scaffolding
+### 🚦 Entry Gate Operator
+- Park a vehicle by assigning it to an available slot.
+- Capture vehicle details (number, type, entry time).
+- Ensure real-time updates to the slot availability.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 🏁 Exit Gate Operator
+- Process vehicle exit operations.
+- Unpark slots and mark them available again.
 
-```bash
-ng generate component component-name
-```
+### 👤 User
+- View available parking slots.
+- Book parking slots.
+- Unpark the parked vehicle.
+- Check slot status in real time.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📸 Screenshots
 
-```bash
-ng generate --help
-```
+*Register Page*
+![Register Page](./App-Screenshots/Register-page.png)
 
-## Building
+*Login Page*
+![Login Page](./App-Screenshots//Login-page.png)
 
-To build the project run:
+*Admin Dashboard*
+![Admin Dashboard](./App-Screenshots/Admin-dashboard.png)
 
-```bash
-ng build
-```
+*Admin Parking Layout*
+![Admin Parking layout](./App-Screenshots//Admin-Parking-Layout.png)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+*Entry Gate Operator Dashboard*
+![Entry Gate Operator Dashboard](./App-Screenshots/Entry-gate-operator-dashboard.png)
 
-## Running unit tests
+*Exit Gate Operator Dashboard*
+![Exit Gate Operator Dashboard](./App-Screenshots/Exit-gate-operator-dashboard.png)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+*User Dashboard*
+![User Dashboard](./App-Screenshots/User-dashboard.png)
 
-```bash
-ng test
-```
+*Admin - Park Vehicle*
+![Admin - Park Vehicle](./App-Screenshots/Park-Vehicle.png)
 
-## Running end-to-end tests
+*Admin - Unpark Vehicle*
+![Admin - Unpark Vehicle](./App-Screenshots/Unpark-vehicle.png)
 
-For end-to-end (e2e) testing, run:
+*User - Park Vehicle*
+![User - Park Vehicle](./App-Screenshots/User-Park-Vehicle.png)
 
-```bash
-ng e2e
-```
+## ⚙️ Installation Guide
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+1. **Clone the Repository**:
 
-## Additional Resources
+-    git clone https://github.com/banumathimuthumariappan-gif/Vehicle-Parking-Management.git
+-    cd Vehicle-Parking-Management
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+2. **Install Dependencies**:
+
+- npm install
+
+3. ** Run the Application**:
+
+- ng serve
+- Open in browser: http://localhost:4200/
+
+## 🧪 Tech Stack
+
+- Angular
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
+- Font Awesome Icons
+
+## 📄 License & Credits
+This project is open source. You are free to use, modify, and distribute it.
+
+## Author
+Made with ❤️ by Banumathi Muthumariappan
+
+
