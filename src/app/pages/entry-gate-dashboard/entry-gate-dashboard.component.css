@@ -11,6 +11,33 @@
   gap: 1rem;
 }
 
+/* Large tablets (<= 1200px) */
+@media (max-width: 1200px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets (<= 992px) */
+@media (max-width: 992px) {
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobiles (<= 576px) */
+@media (max-width: 576px) {
+  .dashboard-cards {
+    grid-template-columns: 1fr; /* Single card per row */
+    justify-items: center; /* Center align */
+  }
+
+  .dashboard-card {
+    width: 90%; /* Keep it responsive */
+    max-width: 280px;
+  }
+}
+
 .dashboard-card {
   background-color: var(--white-color);
   border-color: var(--white-color);
